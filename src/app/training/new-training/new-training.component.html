@@ -13,8 +13,9 @@
 				</mat-form-field>
 				<mat-spinner *ngIf="isLoading"></mat-spinner>
 			</mat-card-content>
-			<mat-card-actions fxLayoutAlign="center">
-				<button mat-raised-button color="warn" type="submit" [disabled]="f.invalid" mat-button>Start</button>
+			<mat-card-actions fxLayoutAlign="center" *ngIf="!isLoading">
+				<button *ngIf="exercises" mat-raised-button color="warn" type="submit" [disabled]="f.invalid" mat-button>Start</button>
+				<button *ngIf="!exercises" mat-raised-button color="warn" type="button" (click)="fetchExercises()" mat-button>Fetch Again</button>
 			</mat-card-actions>
 		</mat-card>
 	</form>
